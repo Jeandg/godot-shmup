@@ -17,6 +17,7 @@ var velocity = Vector2()
 @onready var state_invulnerable = preload("res://player/States/Vulnerable/PlayerInvulnerable.gd").new()
 
 @onready var bullet_scene = preload("res://bullet/bullet.tscn")
+@onready var explosion_scene = preload("res://explosion/explosion.tscn")
 
 var last_shoot = 0
 
@@ -98,10 +99,21 @@ func _get_shoot_interval():
 	return BASE_SHOOT_INTERVAL / total_multipler
 
 func collides_with_ennemy():
+	GameState.decrement_player_life(20)
 	vulnerability_state_machine.change_state(state_invulnerable, self)
+	
+func destroy():
+	var explosion_1 = explosion_scene.instantiate()
+	var explosion_2 = explosion_scene.instantiate()
+	explosion_1.position = position + Vector2(0, 0)
+	explosion_2.position = position + Vector2(3, 3)
+	explosion_2.delay = 0.5
+	get_tree().current_scene.add_child(explosion_1)
+	get_tree().current_scene.add_child(explosion_2)
+	queue_free()
 
 func _on_area_entered(area):
-	if area.is_in_group("ennemies"):
+	if area.is_in_group("ennemies") && vulnerability_state_machine.current_state != state_invulnerable:
 		collides_with_ennemy()
 	elif area.is_in_group("power_ups"):
 		apply_power_up(area)

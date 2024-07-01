@@ -1,0 +1,5 @@
+res://levels/level_1/level_1.tscn
+res://levels/level_1/GameState.gd
+res://levels/level_1/LifeProgressBar.gd
+res://ennemies/EnnemyFlash.gdshader
+res://player/player.gd

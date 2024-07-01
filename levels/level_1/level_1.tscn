@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4uxikkpotmr5"]
+[gd_scene load_steps=14 format=3 uid="uid://c4uxikkpotmr5"]
 
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_uac70"]
 [ext_resource type="PackedScene" uid="uid://01llrfrhvmmd" path="res://player/player.tscn" id="1_v305n"]
@@ -9,10 +9,17 @@
 [ext_resource type="Script" path="res://levels/level_1/LevelSpawner.gd" id="7_k3dcf"]
 [ext_resource type="FontFile" uid="uid://dgt5lknx1s1f" path="res://Retro Gaming.ttf" id="8_15388"]
 [ext_resource type="Script" path="res://levels/level_1/ScoreLabel.gd" id="8_vbeck"]
+[ext_resource type="Script" path="res://levels/level_1/LifeProgressBar.gd" id="10_xusir"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_feb8u"]
 font = ExtResource("8_15388")
 font_size = 10
+
+[sub_resource type="Gradient" id="Gradient_xedw5"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.807971, 0.807971, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0cxt"]
+gradient = SubResource("Gradient_xedw5")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_uac70")
@@ -66,3 +73,12 @@ horizontal_alignment = 2
 vertical_alignment = 1
 uppercase = true
 script = ExtResource("8_vbeck")
+
+[node name="LifeProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 69.0
+scale = Vector2(1, 0.1)
+texture_progress = SubResource("GradientTexture2D_d0cxt")
+script = ExtResource("10_xusir")
