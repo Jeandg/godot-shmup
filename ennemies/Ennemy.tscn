@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://drpkw5vqph4qn"]
+
+[ext_resource type="Texture2D" uid="uid://brcys11qpaqjl" path="res://ennemies/enemy-small.png" id="1_8iykb"]
+[ext_resource type="Script" path="res://ennemies/Ennemy.gd" id="1_nmred"]
+[ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_mrafs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuyw6"]
+resource_local_to_scene = true
+shader = ExtResource("2_mrafs")
+shader_parameter/damaged = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x00py"]
+atlas = ExtResource("1_8iykb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq8ku"]
+atlas = ExtResource("1_8iykb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12oq3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x00py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq8ku")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 13.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cir4"]
+radius = 8.0
+height = 16.0
+
+[node name="Ennemy" type="Area2D" groups=["ennemies"]]
+script = ExtResource("1_nmred")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cuyw6")
+sprite_frames = SubResource("SpriteFrames_12oq3")
+animation = &"straight"
+frame_progress = 0.153301
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_8cir4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
