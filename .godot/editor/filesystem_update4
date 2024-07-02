@@ -1,5 +1,8 @@
 res://levels/level_1/level_1.tscn
-res://levels/level_1/GameState.gd
-res://levels/level_1/LifeProgressBar.gd
 res://ennemies/EnnemyFlash.gdshader
-res://player/player.gd
+res://ennemies/Ennemy.tscn
+res://ennemies/Medium/ennemy_medium.tscn
+res://levels/level_1/LevelSpawner.gd
+res://ennemies/Small/ennemy_small.tscn
+res://ennemies/Ennemy.gd
+res://ennemies/Big/ennemy_big.tscn

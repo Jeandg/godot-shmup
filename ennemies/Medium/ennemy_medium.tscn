@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd4m231l3pjy"]
+
+[ext_resource type="PackedScene" uid="uid://drpkw5vqph4qn" path="res://ennemies/Ennemy.tscn" id="1_c8p66"]
+[ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_gf58u"]
+[ext_resource type="Texture2D" uid="uid://vdd0fuyc0515" path="res://ennemies/Medium/enemy-medium.png" id="3_npaf4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8ds8"]
+resource_local_to_scene = true
+shader = ExtResource("2_gf58u")
+shader_parameter/damaged = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jphhi"]
+atlas = ExtResource("3_npaf4")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhidg"]
+atlas = ExtResource("3_npaf4")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvsm2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jphhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhidg")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 13.0
+}]
+
+[node name="Ennemy" instance=ExtResource("1_c8p66")]
+health = 5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_k8ds8")
+sprite_frames = SubResource("SpriteFrames_fvsm2")
+frame_progress = 0.647581
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708

@@ -3,8 +3,8 @@ extends Area2D
 var last_hit = 0
 var HIT_DURATION = 0.1
 
-var life = 3
-var destroy_score = 1000
+@export var health = 3
+@export var destroy_score = 5000
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -21,7 +21,7 @@ func _process(delta):
 	position = Vector2(position.x, position.y + delta * 40)
 
 func _check_health():
-	if life <= 0:
+	if health <= 0:
 		var explosion_1 = explosion_scene.instantiate()
 		var explosion_2 = explosion_scene.instantiate()
 		explosion_1.position = position + Vector2(0, 0)
@@ -34,7 +34,7 @@ func _check_health():
 	
 func hit(damage):
 	last_hit = 0
-	life -= damage
+	health -= damage
 
 	animated_sprite.material.set_shader_parameter("damaged", true)
 
