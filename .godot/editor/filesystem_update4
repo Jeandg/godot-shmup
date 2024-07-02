@@ -6,3 +6,4 @@ res://levels/level_1/LevelSpawner.gd
 res://ennemies/Small/ennemy_small.tscn
 res://ennemies/Ennemy.gd
 res://ennemies/Big/ennemy_big.tscn
+res://levels/level_1/level_1.gd

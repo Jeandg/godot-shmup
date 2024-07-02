@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drpkw5vqph4qn"]
+[gd_scene load_steps=10 format=3 uid="uid://drpkw5vqph4qn"]
 
 [ext_resource type="Script" path="res://ennemies/Ennemy.gd" id="1_nmred"]
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_mrafs"]
@@ -35,6 +35,13 @@ animations = [{
 radius = 7.0
 height = 24.0
 
+[sub_resource type="Curve2D" id="Curve2D_5u38g"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, -79.6114, 0, 79.6114, 100, 100, 0, 0, 0, 0, 2.08165e-12, 200, -0.274109, -100.433, 0.274109, 100.433, -100, 300, 0, 0, 0, 0, 2.08165e-12, 400, 0.342493, -113.599, -0.342493, 113.599, 100, 500)
+}
+point_count = 6
+
 [node name="Ennemy" type="Area2D" groups=["ennemies"]]
 script = ExtResource("1_nmred")
 
@@ -47,5 +54,12 @@ frame_progress = 0.153301
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_8cir4")
+
+[node name="Path2D" type="Path2D" parent="."]
+rotation = -0.000319502
+curve = SubResource("Curve2D_5u38g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = 0.785398
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
