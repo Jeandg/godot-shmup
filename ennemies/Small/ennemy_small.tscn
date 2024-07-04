@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://i2bjugb6jces"]
+[gd_scene load_steps=5 format=3 uid="uid://i2bjugb6jces"]
 
 [ext_resource type="PackedScene" uid="uid://drpkw5vqph4qn" path="res://ennemies/Ennemy.tscn" id="1_i7glo"]
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_08l33"]
@@ -8,8 +8,20 @@ resource_local_to_scene = true
 shader = ExtResource("2_08l33")
 shader_parameter/damaged = false
 
+[sub_resource type="Curve2D" id="Curve2D_xjn28"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, -79.6114, 0, 79.6114, 100, 100, 0, 0, 0, 0, 2.08165e-12, 200, -0.274109, -100.433, 0.274109, 100.433, -100, 300, 0, 0, 0, 0, 2.08165e-12, 400, 0.342493, -113.599, -0.342493, 113.599, 100, 500)
+}
+point_count = 6
+
 [node name="Ennemy" instance=ExtResource("1_i7glo")]
-destroy_score = 1000
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_h3bnk")
+
+[node name="Path2D" parent="." index="2"]
+curve = SubResource("Curve2D_xjn28")
+
+[node name="HealthDestroyableComponent" parent="." index="4"]
+destroy_score = null

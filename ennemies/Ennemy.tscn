@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://drpkw5vqph4qn"]
+[gd_scene load_steps=13 format=3 uid="uid://drpkw5vqph4qn"]
 
 [ext_resource type="Script" path="res://ennemies/Ennemy.gd" id="1_nmred"]
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_mrafs"]
 [ext_resource type="Texture2D" uid="uid://brcys11qpaqjl" path="res://ennemies/Small/enemy-small.png" id="3_c1vad"]
+[ext_resource type="Script" path="res://components/HealthComponent.gd" id="4_xkfg7"]
+[ext_resource type="Script" path="res://components/HealthDestroyableComponent.gd" id="5_premh"]
+[ext_resource type="Script" path="res://components/VisibleHittableComponent.gd" id="6_0tupo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cuyw6"]
 resource_local_to_scene = true
@@ -61,5 +64,18 @@ curve = SubResource("Curve2D_5u38g")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotation = 0.785398
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_xkfg7")
+
+[node name="HealthDestroyableComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("5_premh")
+health_component = NodePath("../HealthComponent")
+destroy_score = 100
+
+[node name="VisibleHittableComponent" type="Node" parent="." node_paths=PackedStringArray("animated_sprite", "health_component")]
+script = ExtResource("6_0tupo")
+animated_sprite = NodePath("../AnimatedSprite2D")
+health_component = NodePath("../HealthComponent")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

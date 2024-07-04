@@ -26,7 +26,6 @@ func _ready():
 	get_tree().create_timer(11).timeout.connect(_spawn_ennemy.bind(viewport_right, 20, ENNEMY_TYPE.BIG))
 	get_tree().create_timer(12).timeout.connect(_spawn_ennemy.bind(viewport_right, 20, ENNEMY_TYPE.BIG))
 	
-	print("ready")
 
 enum ENNEMY_TYPE {SMALL, MEDIUM, BIG}
 

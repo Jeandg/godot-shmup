@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719941002
+::res://::1720123745
 icon.svg::CompressedTexture2D::4046431563512063089::1719596437::1719865731::1::::<><>::
 README.md::TextFile::-1::1719866825::0::1::::<><>::
 Retro Gaming.ttf::FontFile::224160587945501089::1719864627::1719865731::1::::<><>::
@@ -7,32 +7,36 @@ Retro Gaming.ttf::FontFile::224160587945501089::1719864627::1719865731::1::::<><
 bullet.gd::GDScript::-1::1719763106::0::1::::<>Area2D<>::
 bullet.tscn::PackedScene::5116143684393606473::1719864715::0::1::::<><>::uid://b5rl26g6lxmqg::::res://bullet/laser-bolts.png<>res://bullet/bullet.gd
 laser-bolts.png::CompressedTexture2D::4527898156925749278::1719692297::1719865731::1::::<><>::
-::res://ennemies/::1719941002
-Ennemy.gd::GDScript::-1::1719940872::0::1::::<>Area2D<>::
-Ennemy.tscn::PackedScene::8384086125519040777::1719940945::0::1::::<><>::res://ennemies/Ennemy.gd<>res://ennemies/EnnemyFlash.gdshader<>uid://brcys11qpaqjl::::res://ennemies/Small/enemy-small.png
-EnnemyFlash.gdshader::Shader::-1::1719940945::0::1::::<><>::
-::res://ennemies/Big/::1719941000
+::res://components/::1720123704
+HealthComponent.gd::GDScript::-1::1720122673::0::1::::HealthComponent<>Node<>::
+HealthDestroyableComponent.gd::GDScript::-1::1720123704::0::1::::HealthDestroyableComponent<>Node<>::
+::res://ennemies/::1720123736
+Ennemy.gd::GDScript::-1::1719948740::0::1::::<>Area2D<>::
+Ennemy.tscn::PackedScene::8384086125519040777::1720123704::0::1::::<><>::res://ennemies/Ennemy.gd<>res://ennemies/EnnemyFlash.gdshader<>uid://brcys11qpaqjl::::res://ennemies/Small/enemy-small.png<>res://components/HealthComponent.gd<>res://components/HealthDestroyableComponent.gd
+EnnemyFlash.gdshader::Shader::-1::1720123736::0::1::::<><>::
+::res://ennemies/Big/::1719951090
 enemy-big.png::CompressedTexture2D::3875840594452568642::1719941000::1719941002::1::::<><>::
-::res://ennemies/Medium/::1719940945
+ennemy_big.tscn::PackedScene::5301666423793383166::1719951090::0::1::::<><>::uid://drpkw5vqph4qn::::res://ennemies/Ennemy.tscn<>res://ennemies/EnnemyFlash.gdshader<>uid://bvhqr70hmih1s::::res://ennemies/Big/enemy-big.png
+::res://ennemies/Medium/::1719951090
 enemy-medium.png::CompressedTexture2D::1480385940093761266::1719940269::1719940271::1::::<><>::
-ennemy_medium.tscn::PackedScene::148354505437446742::1719940945::0::1::::<><>::uid://drpkw5vqph4qn::::res://ennemies/Ennemy.tscn<>res://ennemies/EnnemyFlash.gdshader<>uid://vdd0fuyc0515::::res://ennemies/Medium/enemy-medium.png
-::res://ennemies/Small/::1719940945
+ennemy_medium.tscn::PackedScene::148354505437446742::1719951090::0::1::::<><>::uid://drpkw5vqph4qn::::res://ennemies/Ennemy.tscn<>res://ennemies/EnnemyFlash.gdshader<>uid://vdd0fuyc0515::::res://ennemies/Medium/enemy-medium.png
+::res://ennemies/Small/::1719951090
 enemy-small.png::CompressedTexture2D::3585250539683503597::1719605378::1719940181::1::::<><>::
-ennemy_small.tscn::PackedScene::617326797424830970::1719940945::0::1::::<><>::uid://drpkw5vqph4qn::::res://ennemies/Ennemy.tscn<>res://ennemies/EnnemyFlash.gdshader
+ennemy_small.tscn::PackedScene::617326797424830970::1719951090::0::1::::<><>::uid://drpkw5vqph4qn::::res://ennemies/Ennemy.tscn<>res://ennemies/EnnemyFlash.gdshader
 ::res://explosion/::1719865731
 explosion.gd::GDScript::-1::1719753164::0::1::::<>Node2D<>::
 explosion.png::CompressedTexture2D::9000606086918993298::1719750937::1719865731::1::::<><>::
 explosion.tscn::PackedScene::4153604036193602630::1719754431::0::1::::<><>::uid://d1h7wxlpt42os::::res://explosion/explosion.png<>res://explosion/explosion.gd
 ::res://levels/::1719597741
-::res://levels/level_1/::1719940945
+::res://levels/level_1/::1719946574
 background.png::CompressedTexture2D::7494289651921826688::1719602408::1719865731::1::::<><>::
 clouds-transparent.png::CompressedTexture2D::9082231110678572238::1719605080::1719865731::1::::<><>::
 clouds.png::CompressedTexture2D::7644363400186871023::1719605080::1719865731::1::::<><>::
 GameState.gd::GDScript::-1::1719866568::0::1::::<>Node<>::
 InfiniteScrollingBackground.gd::GDScript::-1::1719604235::0::1::::<>ParallaxBackground<>::
-LevelSpawner.gd::GDScript::-1::1719940780::0::1::::<>Node<>::
-level_1.gd::GDScript::-1::1719761484::0::1::::<>Node2D<>::
-level_1.tscn::PackedScene::6851016706537751528::1719940945::0::1::::<><>::res://levels/level_1/level_1.gd<>uid://01llrfrhvmmd::::res://player/player.tscn<>uid://de1j4dd8rd2ee::::res://levels/level_1/background.png<>res://levels/level_1/InfiniteScrollingBackground.gd<>uid://cymqq3cdapp3e::::res://power_up/power_up.tscn<>res://levels/level_1/GameState.gd<>res://levels/level_1/LevelSpawner.gd<>uid://dgt5lknx1s1f::::res://Retro Gaming.ttf<>res://levels/level_1/ScoreLabel.gd<>res://levels/level_1/LifeProgressBar.gd
+LevelSpawner.gd::GDScript::-1::1719941188::0::1::::<>Node<>::
+level_1.gd::GDScript::-1::1719944845::0::1::::<>Node2D<>::
+level_1.tscn::PackedScene::6851016706537751528::1719946574::0::1::::<><>::res://levels/level_1/level_1.gd<>uid://01llrfrhvmmd::::res://player/player.tscn<>uid://de1j4dd8rd2ee::::res://levels/level_1/background.png<>res://levels/level_1/InfiniteScrollingBackground.gd<>uid://cymqq3cdapp3e::::res://power_up/power_up.tscn<>res://levels/level_1/GameState.gd<>res://levels/level_1/LevelSpawner.gd<>uid://dgt5lknx1s1f::::res://Retro Gaming.ttf<>res://levels/level_1/ScoreLabel.gd<>res://levels/level_1/LifeProgressBar.gd
 LifeProgressBar.gd::GDScript::-1::1719866205::0::1::::<>TextureProgressBar<>::
 ScoreLabel.gd::GDScript::-1::1719864432::0::1::::<>Label<>::
 ::res://player/::1719866664

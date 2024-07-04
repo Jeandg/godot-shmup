@@ -81,7 +81,6 @@ func _shoot():
 		last_shoot = 0
 	
 func apply_power_up(power_up):
-	print(power_up.get_property_list())
 	if "shoot_rate_multiplier" in power_up:
 		shoot_interval_power_ups.append(power_up.shoot_rate_multiplier)
 	
@@ -94,8 +93,6 @@ func _get_shoot_interval():
 		for i in shoot_interval_power_ups:
 			total_multipler+=i
 	
-	print("interval")
-	print(BASE_SHOOT_INTERVAL / total_multipler)
 	return BASE_SHOOT_INTERVAL / total_multipler
 
 func collides_with_ennemy():
