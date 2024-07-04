@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drpkw5vqph4qn"]
+[gd_scene load_steps=14 format=3 uid="uid://drpkw5vqph4qn"]
 
 [ext_resource type="Script" path="res://ennemies/Ennemy.gd" id="1_nmred"]
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_mrafs"]
@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://components/HealthComponent.gd" id="4_xkfg7"]
 [ext_resource type="Script" path="res://components/HealthDestroyableComponent.gd" id="5_premh"]
 [ext_resource type="Script" path="res://components/VisibleHittableComponent.gd" id="6_0tupo"]
+[ext_resource type="Script" path="res://components/HealthDepletedCounterComponent.gd" id="7_60216"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuyw6"]
-resource_local_to_scene = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nng2w"]
 shader = ExtResource("2_mrafs")
 shader_parameter/damaged = false
 
@@ -49,7 +49,7 @@ point_count = 6
 script = ExtResource("1_nmred")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_cuyw6")
+material = SubResource("ShaderMaterial_nng2w")
 sprite_frames = SubResource("SpriteFrames_12oq3")
 animation = &"straight"
 frame_progress = 0.153301
@@ -77,5 +77,11 @@ destroy_score = 100
 script = ExtResource("6_0tupo")
 animated_sprite = NodePath("../AnimatedSprite2D")
 health_component = NodePath("../HealthComponent")
+
+[node name="HealthDepletedCounterComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("7_60216")
+health_component = NodePath("../HealthComponent")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HealthDepletedCounterComponent"]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

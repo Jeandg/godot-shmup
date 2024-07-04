@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd4m231l3pjy"]
+[gd_scene load_steps=9 format=3 uid="uid://cd4m231l3pjy"]
 
 [ext_resource type="PackedScene" uid="uid://drpkw5vqph4qn" path="res://ennemies/Ennemy.tscn" id="1_c8p66"]
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_gf58u"]
 [ext_resource type="Texture2D" uid="uid://vdd0fuyc0515" path="res://ennemies/Medium/enemy-medium.png" id="3_npaf4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8ds8"]
-resource_local_to_scene = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yes7h"]
 shader = ExtResource("2_gf58u")
 shader_parameter/damaged = false
 
@@ -31,13 +30,22 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_473ky"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, -79.6114, 0, 79.6114, 100, 100, 0, 0, 0, 0, 2.08165e-12, 200, -0.274109, -100.433, 0.274109, 100.433, -100, 300, 0, 0, 0, 0, 2.08165e-12, 400, 0.342493, -113.599, -0.342493, 113.599, 100, 500)
+}
+point_count = 6
+
 [node name="Ennemy" instance=ExtResource("1_c8p66")]
-health = 5
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_k8ds8")
+material = SubResource("ShaderMaterial_yes7h")
 sprite_frames = SubResource("SpriteFrames_fvsm2")
 frame_progress = 0.647581
 
 [node name="CollisionShape2D" parent="." index="1"]
 rotation = 1.5708
+
+[node name="Path2D" parent="." index="2"]
+curve = SubResource("Curve2D_473ky")
