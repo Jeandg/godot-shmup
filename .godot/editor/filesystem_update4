@@ -2,9 +2,10 @@ res://ennemies/Ennemy.tscn
 res://components/HealthComponent.gd
 res://components/HealthDestroyableComponent.gd
 res://ennemies/EnnemyFlash.gdshader
-res://components/HealthDepletedCounterComponent.gd
 res://ennemies/Big/ennemy_big.tscn
 res://ennemies/Small/ennemy_small.tscn
 res://bullet/bullet.tscn
 res://ennemies/Medium/ennemy_medium.tscn
 res://levels/level_1/level_1.tscn
+res://player/player.tscn
+res://player/player.gd

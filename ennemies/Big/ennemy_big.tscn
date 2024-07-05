@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://ennemies/EnnemyFlash.gdshader" id="2_fqxxc"]
 [ext_resource type="Texture2D" uid="uid://bvhqr70hmih1s" path="res://ennemies/Big/enemy-big.png" id="3_ihrw7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pl1wh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghvpg"]
 shader = ExtResource("2_fqxxc")
 shader_parameter/damaged = false
 
@@ -40,7 +40,7 @@ point_count = 6
 [node name="Ennemy" instance=ExtResource("1_6tx35")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_pl1wh")
+material = SubResource("ShaderMaterial_ghvpg")
 sprite_frames = SubResource("SpriteFrames_ucxmd")
 frame_progress = 0.0
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://01llrfrhvmmd"]
+[gd_scene load_steps=13 format=3 uid="uid://01llrfrhvmmd"]
 
 [ext_resource type="Texture2D" uid="uid://ynuflen8cw74" path="res://player/ship.png" id="1_c0wk5"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_vdwcd"]
+[ext_resource type="Script" path="res://components/HealthDestroyableComponent.gd" id="3_nga25"]
+[ext_resource type="Script" path="res://components/HealthComponent.gd" id="4_pm1mt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nn3og"]
 radius = 7.0
@@ -77,6 +79,13 @@ shape = SubResource("CapsuleShape2D_nn3og")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bcdmw")
 animation = &"straight"
+
+[node name="HealthDestroyableComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_nga25")
+health_component = NodePath("../HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_pm1mt")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
