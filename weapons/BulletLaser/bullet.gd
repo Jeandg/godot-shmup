@@ -2,9 +2,11 @@ extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
+var direction: Vector2
 
 var bullet_speed = 250
 var bullet_damage = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +17,7 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	position += Vector2(0, -bullet_speed * delta)
+	position += direction * (bullet_speed * delta)
 	
 	var viewport = get_viewport().get_visible_rect()
 	if !viewport.has_point(position):

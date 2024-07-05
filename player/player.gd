@@ -3,6 +3,8 @@ extends Area2D
 var speed = 1.5
 var velocity = Vector2()
 
+signal asked_to_shoot
+
 # Sprites : https://ansimuz.itch.io/spaceship-shooter-environment
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
@@ -17,11 +19,6 @@ var velocity = Vector2()
 @onready var state_vulnerable = preload("res://player/States/Vulnerable/PlayerVulnerable.gd").new()
 @onready var state_invulnerable = preload("res://player/States/Vulnerable/PlayerInvulnerable.gd").new()
 
-@onready var bullet_scene = preload("res://bullet/bullet.tscn")
-
-var last_shoot = 0
-
-var BASE_SHOOT_INTERVAL = 0.5
 var shoot_interval_power_ups = []
 
 # Called when the node enters the scene tree for the first time.
@@ -31,10 +28,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	last_shoot += delta
-	
 	if Input.is_action_pressed("ui_select"):
-		_shoot()
+		asked_to_shoot.emit()
 	
 	_move_and_slide()
 	
@@ -73,27 +68,9 @@ func _move_and_slide():
 	
 	position = position + velocity
 
-func _shoot():
-	if last_shoot > _get_shoot_interval():
-		var bullet = bullet_scene.instantiate()
-		bullet.position = position + Vector2(0, -22)
-		get_tree().current_scene.add_child(bullet)
-		last_shoot = 0
-	
 func apply_power_up(power_up):
 	if "shoot_rate_multiplier" in power_up:
 		shoot_interval_power_ups.append(power_up.shoot_rate_multiplier)
-	
-func _get_shoot_interval():
-	var total_multipler = 0
-	
-	if shoot_interval_power_ups.is_empty():
-		total_multipler = 1
-	else:
-		for i in shoot_interval_power_ups:
-			total_multipler+=i
-	
-	return BASE_SHOOT_INTERVAL / total_multipler
 
 func collides_with_ennemy():
 	health_component.take_damage(10)

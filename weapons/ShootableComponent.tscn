@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb62bb8mhixci"]
+
+[ext_resource type="Script" path="res://weapons/ShootableComponent.gd" id="1_nriqb"]
+
+[node name="ShootableComponent" type="Node"]
+script = ExtResource("1_nriqb")
+shoot_direction = Vector2(2.08165e-12, 2.08165e-12)

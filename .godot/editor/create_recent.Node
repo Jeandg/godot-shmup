@@ -1,12 +1,14 @@
+Node2D
+ShootableComponent
+BulletLaserWeapon
+WeaponScene
 HealthComponent
 HealthDestroyableComponent
 CanvasLayer
 HealthDepletedCounterComponent
 VisibleHittableComponent
-Node2D
 CollisionShape2D
 Area2D
 Node
 Path2D
 PathFollow2D
-TextureProgressBar
