@@ -24,3 +24,9 @@ res://weapons/BulletLaser/bullet.gd
 res://ennemies/Ennemy.gd
 res://weapons/ShootableComponent.tscn
 res://weapons/ShootableComponent.gd
+res://components/PowerUpCollectableComponent.tscn
+res://components/PowerUpCollectableComponent.gd
+res://power_up/power_up.tscn
+res://power_up/power_up.gd
+res://levels/level_1/level_1.gd
+res://levels/level_1/GameState.gd

@@ -3,6 +3,8 @@ extends Node
 class_name WeaponScene
 
 @export var fire_rate: float = 1.0
+@export var power_up_collectable: PowerUpCollectableComponent
+
 var time_since_last_shot: float = 0
 
 func _ready():
@@ -14,7 +16,11 @@ func _process(delta):
 	time_since_last_shot += delta
 
 func can_shoot() -> bool:
-	return time_since_last_shot > fire_rate
+	var final_fire_rate = fire_rate
+	if power_up_collectable:
+		for shoot_rate_multipler in power_up_collectable.collected_shoot_rate_multipler:
+			final_fire_rate = final_fire_rate / shoot_rate_multipler
+	return time_since_last_shot > final_fire_rate
 
 func shoot(direction: Vector2, origin: Vector2):
 	if can_shoot():

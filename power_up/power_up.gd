@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name PowerUp
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 var shoot_rate_multiplier = 1.5

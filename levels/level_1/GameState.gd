@@ -6,6 +6,7 @@ var player_life = 100
 func add_score(score_to_add):
 	player_score += score_to_add
 
+#TODO: use healthcomponent
 func decrement_player_life(damage):
 	player_life -= damage
 	if player_life <= 0:

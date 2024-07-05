@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djmkmeab3ad2u"]
+
+[ext_resource type="Script" path="res://components/PowerUpCollectableComponent.gd" id="1_gidl8"]
+
+[node name="PowerUpCollectable" type="Node"]
+script = ExtResource("1_gidl8")

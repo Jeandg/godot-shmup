@@ -19,8 +19,6 @@ signal asked_to_shoot
 @onready var state_vulnerable = preload("res://player/States/Vulnerable/PlayerVulnerable.gd").new()
 @onready var state_invulnerable = preload("res://player/States/Vulnerable/PlayerInvulnerable.gd").new()
 
-var shoot_interval_power_ups = []
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	movement_state_machine.change_state(state_straight, self)
@@ -68,10 +66,6 @@ func _move_and_slide():
 	
 	position = position + velocity
 
-func apply_power_up(power_up):
-	if "shoot_rate_multiplier" in power_up:
-		shoot_interval_power_ups.append(power_up.shoot_rate_multiplier)
-
 func collides_with_ennemy():
 	health_component.take_damage(10)
 	vulnerability_state_machine.change_state(state_invulnerable, self)
@@ -79,6 +73,3 @@ func collides_with_ennemy():
 func _on_area_entered(area):
 	if area.is_in_group("ennemies") && vulnerability_state_machine.current_state != state_invulnerable:
 		collides_with_ennemy()
-	elif area.is_in_group("power_ups"):
-		apply_power_up(area)
-		area.queue_free()
