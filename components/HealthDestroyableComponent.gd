@@ -22,6 +22,9 @@ func _on_health_depleted(new_health: int, amount_depleted: int):
 	if new_health <= 0:
 		_explode()
 		GameState.add_score(destroy_score)
+		for child in get_parent().get_children():
+			if child is LootableComponent:
+				child.loot()
 		get_parent().queue_free()
 
 func _explode():

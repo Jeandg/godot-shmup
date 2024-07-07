@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://components/VisibleHittableComponent.gd" id="6_0tupo"]
 [ext_resource type="Script" path="res://components/HealthDepletedCounterComponent.gd" id="7_60216"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3na0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c1cq"]
 shader = ExtResource("2_mrafs")
 shader_parameter/damaged = false
 
@@ -49,7 +49,7 @@ point_count = 6
 script = ExtResource("1_nmred")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_q3na0")
+material = SubResource("ShaderMaterial_4c1cq")
 sprite_frames = SubResource("SpriteFrames_12oq3")
 animation = &"straight"
 frame_progress = 0.153301
@@ -67,6 +67,7 @@ rotation = 0.785398
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_xkfg7")
+total_health = 30
 
 [node name="HealthDestroyableComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
 script = ExtResource("5_premh")

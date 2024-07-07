@@ -5,6 +5,8 @@ extends Node
 @onready var ennemy_big_scene = preload("res://ennemies/Big/ennemy_big.tscn")
 @onready var power_up_scene = preload("res://power_up/power_up.tscn")
 
+@onready var lootable_scene = preload("res://components/LootableComponent.tscn")
+
 func _ready():
 	var viewport_width = get_viewport().get_visible_rect().end.x
 	
@@ -39,7 +41,14 @@ func _spawn_ennemy(x, y, type):
 			ennemy = ennemy_medium_scene.instantiate()
 		ENNEMY_TYPE.BIG:
 			ennemy = ennemy_big_scene.instantiate()
-		
+	
+	var should_have_power_up = randi() % 100 < 10
+	
+	if should_have_power_up:
+		var lootable_component = lootable_scene.instantiate()
+		lootable_component.power_up_to_loot_scene = power_up_scene
+		ennemy.add_child(lootable_component)
+
 	ennemy.position = Vector2(x, y)
 	get_tree().current_scene.add_child(ennemy)
 
