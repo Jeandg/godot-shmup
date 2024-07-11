@@ -1,3 +1,5 @@
+VBoxContainer
+MenuButton
 PowerUpCollectableComponent
 Node2D
 ShootableComponent
@@ -11,5 +13,3 @@ VisibleHittableComponent
 CollisionShape2D
 Area2D
 Node
-Path2D
-PathFollow2D
