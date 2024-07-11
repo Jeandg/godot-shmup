@@ -1,12 +1,8 @@
-res://player/player.tscn
 res://components/HealthComponent.gd
 res://components/HealthDestroyableComponent.gd
 res://ennemies/EnnemyFlash.gdshader
-res://weapons/ShootableComponent.tscn
-res://components/PowerUpCollectableComponent.tscn
-res://power_up/power_up.tscn
+res://ennemies/Ennemy.gd
 res://levels/level_1/level_1.tscn
-res://components/LootableComponent.tscn
-res://components/LootableComponent.gd
-res://ennemies/Ennemy.tscn
-res://levels/level_1/LevelSpawner.gd
+res://levels/level_1/Level1Background.tscn
+res://levels/level_1/LifeProgressBar.gd
+res://levels/level_1/level_1.gd

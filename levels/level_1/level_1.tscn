@@ -1,10 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4uxikkpotmr5"]
+[gd_scene load_steps=12 format=3 uid="uid://c4uxikkpotmr5"]
 
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_uac70"]
 [ext_resource type="PackedScene" uid="uid://01llrfrhvmmd" path="res://player/player.tscn" id="1_v305n"]
-[ext_resource type="Texture2D" uid="uid://de1j4dd8rd2ee" path="res://levels/level_1/background.png" id="2_ru6w5"]
-[ext_resource type="Script" path="res://levels/level_1/InfiniteScrollingBackground.gd" id="3_umhna"]
-[ext_resource type="PackedScene" uid="uid://cymqq3cdapp3e" path="res://power_up/power_up.tscn" id="6_hnvaq"]
+[ext_resource type="PackedScene" uid="uid://b75k2ga75mumy" path="res://levels/level_1/Level1Background.tscn" id="3_pnmfb"]
 [ext_resource type="Script" path="res://levels/level_1/GameState.gd" id="7_bkb40"]
 [ext_resource type="Script" path="res://levels/level_1/LevelSpawner.gd" id="7_k3dcf"]
 [ext_resource type="FontFile" uid="uid://dgt5lknx1s1f" path="res://Retro Gaming.ttf" id="8_15388"]
@@ -27,31 +25,7 @@ script = ExtResource("1_uac70")
 [node name="Player" parent="." instance=ExtResource("1_v305n")]
 position = Vector2(120, 400)
 
-[node name="InfiniteScrollingBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("3_umhna")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="InfiniteScrollingBackground"]
-motion_mirroring = Vector2(2.08165e-12, 320)
-
-[node name="Sprite2D" type="Sprite2D" parent="InfiniteScrollingBackground/ParallaxLayer"]
-texture_repeat = 2
-texture = ExtResource("2_ru6w5")
-centered = false
-offset = Vector2(2.08165e-12, 2.08165e-12)
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 240, 420)
-
-[node name="PowerUp" parent="." instance=ExtResource("6_hnvaq")]
-position = Vector2(75, 214)
-
-[node name="PowerUp2" parent="." instance=ExtResource("6_hnvaq")]
-position = Vector2(92, 216)
-
-[node name="PowerUp3" parent="." instance=ExtResource("6_hnvaq")]
-position = Vector2(165, 216)
-
-[node name="PowerUp4" parent="." instance=ExtResource("6_hnvaq")]
-position = Vector2(129, 214)
+[node name="InfiniteScrollingBackground" parent="." instance=ExtResource("3_pnmfb")]
 
 [node name="LevelSpawner" type="Node" parent="."]
 script = ExtResource("7_k3dcf")
@@ -74,7 +48,7 @@ vertical_alignment = 1
 uppercase = true
 script = ExtResource("8_vbeck")
 
-[node name="LifeProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="LifeProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("health_component")]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 69.0
@@ -82,3 +56,6 @@ offset_bottom = 69.0
 scale = Vector2(1, 0.1)
 texture_progress = SubResource("GradientTexture2D_d0cxt")
 script = ExtResource("10_xusir")
+health_component = NodePath("../../Player/HealthComponent")
+
+[editable path="Player"]
